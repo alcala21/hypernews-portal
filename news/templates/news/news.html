@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<title>HyperNews</title>
+<h2>Hyper news</h2>
+<body>
+{% for articles in articles_dict %}
+    <h4>{{articles.created}}</h4>
+
+    <ul>
+    {% for article in articles.news %}
+      <li><a target="_blank" href="/news/{{article.link}}/">{{article.title}}</a></li>
+    {% endfor %}
+    </ul>
+{% endfor %}
+
+<a target="_blank" href="/news/create/">Create</a>
+</body>
