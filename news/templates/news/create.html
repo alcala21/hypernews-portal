@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<title>HyperNews</title>
+<h2>Create</h2>
+<body>
+    <form action="/news/create/" method="post"> {% csrf_token %}
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title">
+        <br>
+        <br>
+        <label for="text">Text:</label>
+        <input type="text" name="text" id="text">
+        <br>
+        <br>
+        <button type="submit">Create article</button>
+    </form>
+    <p>
+        <a target="_blank" href="/news/">/news/</a>
+    </p>
+</body>

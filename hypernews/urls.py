@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from news.views import BaseView, NewsView, ArticleView
+from django.conf import settings
+from django.conf.urls.static import static
+from news.views import BaseView, NewsView, ArticleView, CreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', BaseView.as_view(), name='Base'),
     path('news/', NewsView.as_view(), name='News'),
-    path('news/<int:link_id>/', ArticleView.as_view(), name='Article')
+    path('news/<int:link_id>/', ArticleView.as_view(), name='Article'),
+    path('news/create/', CreateView.as_view(), name='Create')
 ]
+
+urlpatterns += static(settings.STATIC_URL)
